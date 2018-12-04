@@ -26,6 +26,17 @@
 </script>
 %endif
 
+<script type="text/javascript">
+
+    window.MathJax = {
+        menuSettings: {
+            collapsible: true,
+            autocollapse: true,
+            explorer: true
+        }
+    };
+</script>
+
 %if mathjax_mode is not Undefined and mathjax_mode == 'wiki':
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -79,5 +90,5 @@
 <!-- This must appear after all mathjax-config blocks, so it is after the imports from the other templates.
      It can't be run through static.url because MathJax uses crazy url introspection to do lazy loading of
      MathJax extension libraries -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG"></script>
 %endif

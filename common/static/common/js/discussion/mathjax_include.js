@@ -8,6 +8,14 @@ if (typeof MathJax === 'undefined') {
         };
     }
 
+    window.MathJax = {
+        menuSettings: {
+            collapsible: true,
+            autocollapse: true,
+            explorer: true
+        }
+    };
+
     vendorScript = document.createElement('script');
     vendorScript.onload = function() {
         'use strict';
@@ -42,6 +50,6 @@ if (typeof MathJax === 'undefined') {
             });
         };
     };
-    vendorScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG';
+    vendorScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG';
     document.body.appendChild(vendorScript);
 }
