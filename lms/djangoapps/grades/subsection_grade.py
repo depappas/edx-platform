@@ -89,10 +89,22 @@ class ZeroSubsectionGrade(SubsectionGradeBase):
 
     @property
     def all_total(self):
+        """
+        Returns the total score (earned and possible) amongst all problems (graded and ungraded) in this subsection.
+        NOTE: This will traverse this subsection's subtree to determine
+        problem scores.  If self.course_data.structure is currently null, this means
+        we will first fetch the user-specific course structure from the data store!
+        """
         return self._aggregate_scores[0]
 
     @property
     def graded_total(self):
+        """
+        Returns the total score (earned and possible) amongst all graded problems in this subsection.
+        NOTE: This will traverse this subsection's subtree to determine
+        problem scores.  If self.course_data.structure is currently null, this means
+        we will first fetch the user-specific course structure from the data store!
+        """
         return self._aggregate_scores[1]
 
     @lazy
