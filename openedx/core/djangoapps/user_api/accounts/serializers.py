@@ -21,6 +21,7 @@ from openedx.core.djangoapps.user_api.models import (
     UserRetirementStatus
 )
 from openedx.core.djangoapps.user_api.serializers import ReadOnlyFieldsSerializerMixin
+from openedx.features.enterprise_support.utils import is_enterprise_learner
 from student.models import UserProfile, LanguageProficiency, SocialLink
 
 from . import (
@@ -159,7 +160,7 @@ class UserReadOnlySerializer(serializers.Serializer):
         else:
             fields = self.configuration.get('public_fields')
 
-        if not is_secondary_email_feature_enabled() and 'secondary_email' in fields:
+        if not is_secondary_email_feature_enabled() and is_enterprise_learner(user) and 'secondary_email' in fields:
             fields.remove('secondary_email')
 
         return self._filter_fields(
