@@ -1,6 +1,7 @@
 .forum-search {
   display: flex;
   margin-top: $baseline;
+  position: relative;
 
   .search-input {
     width: input-width(short);
@@ -15,4 +16,39 @@
 
     margin-top: 0;
   }
+}
+
+.forum-search > label {
+  position: absolute;
+  display: block;
+  color: #495057;
+  transition: all .1s ease-in-out;
+  padding-left: 10px;
+  padding-top: 10px;
+
+}
+
+.forum-search input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.forum-search input:-ms-input-placeholder {
+  color: transparent;
+}
+
+.forum-search input::-ms-input-placeholder {
+  color: transparent;
+}
+
+.forum-search input::-moz-placeholder {
+  color: transparent;
+}
+
+.forum-search input::placeholder {
+  color: transparent;
+}
+
+.forum-search input:not(:placeholder-shown) ~ label {
+  padding-top: .15rem;
+  font-size: 10px;
 }
