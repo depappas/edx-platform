@@ -743,7 +743,7 @@ def _validate_secondary_email_doesnt_exist(email):
     :raises: errors.AccountEmailAlreadyExists
     """
     if email is not None and UserProfile.objects.filter(secondary_email=email).exists():
-        raise errors.AccountEmailAlreadyExists(_(accounts.EMAIL_CONFLICT_MSG).format(email_address=email))
+        raise errors.AccountEmailAlreadyExists(accounts.EMAIL_CONFLICT_MSG.format(email_address=email))
 
 
 def _validate_password_works_with_username(password, username=None):

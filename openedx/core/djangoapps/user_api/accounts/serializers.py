@@ -160,7 +160,7 @@ class UserReadOnlySerializer(serializers.Serializer):
         else:
             fields = self.configuration.get('public_fields')
 
-        if not is_secondary_email_feature_enabled() and is_enterprise_learner(user) and 'secondary_email' in fields:
+        if not is_secondary_email_feature_enabled() or not is_enterprise_learner(user) and 'secondary_email' in fields:
             fields.remove('secondary_email')
 
         return self._filter_fields(
